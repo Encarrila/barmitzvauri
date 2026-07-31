@@ -1,0 +1,53 @@
+PUBLICAR EN GITHUB PAGES  ·  encarrila.github.io/barmitzvauri
+================================================================
+
+1. github.com  ->  New repository
+     Nombre: barmitzvauri
+     Público
+     Create repository
+
+2. En el repo vacío: "uploading an existing file"
+     Arrastrá TODO lo que está dentro de esta carpeta
+     (index.html, support.js, .nojekyll y la carpeta musica).
+     OJO: los archivos sueltos, no la carpeta "publicar" entera.
+     Commit changes.
+
+3. Settings -> Pages
+     Source: Deploy from a branch
+     Branch: main   /  (root)   -> Save
+
+4. Esperá 1-2 minutos. Queda en:
+     https://encarrila.github.io/barmitzvauri/
+
+
+ANTES DE MANDAR LOS LINKS
+================================================================
+
+[x] ENDPOINT del formulario  ->  YA ESTÁ PUESTO
+    Las confirmaciones caen en la hoja "RSVP" de tu planilla.
+    Probalo después de publicar: llená el formulario con tu nombre
+    y fijate que aparezca la fila.
+
+[ ] Música (opcional)
+    Poné tu mp3 en musica/cancion.mp3
+
+[ ] Favicon (opcional)
+    Poné un png en fotos/favicon.png (creá la carpeta fotos)
+
+
+LINKS PERSONALIZADOS POR INVITADO
+================================================================
+
+Invitación completa (ceremonias + fiesta), 4 lugares:
+  https://encarrila.github.io/barmitzvauri/?n=Familia%20Rosenberg&c=4
+
+Solo ceremonias en el templo (sin fiesta del domingo):
+  https://encarrila.github.io/barmitzvauri/?n=Familia%20Rosenberg&f=0
+
+Sin parámetros dice "Te esperamos" y reserva 2 lugares.
+
+  n = nombre que se muestra
+  c = cantidad de lugares para la fiesta
+  f=0 = oculta la fiesta del domingo y el bloque de lugares
+
+Los espacios se escriben %20 (o usá el Panel de invitados para armarlos).

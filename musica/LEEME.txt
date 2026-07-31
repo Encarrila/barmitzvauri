@@ -1,0 +1,6 @@
+Poné acá tu canción con este nombre exacto:
+
+  cancion.mp3
+
+Se reproduce al abrir el sobre y con el botón ♪ de la esquina.
+Si no hay archivo, el botón simplemente no suena (no rompe nada).

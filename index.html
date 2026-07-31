@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uriel Kahan · Bar Mitzvá</title>
+<meta name="description" content="Bar Mitzvá de Uriel Kahan — 26 al 29 de noviembre">
+<meta property="og:title" content="Bar Mitzvá de Uriel Kahan">
+<meta property="og:description" content="Queremos compartir este día con vos">
+<meta property="og:type" content="website">
+<link rel="icon" href="fotos/favicon.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&amp;family=Marcellus&amp;family=Jost:wght@200;300;400;500&amp;family=DM+Sans:wght@300;400;500&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  /* ====== PALETA: cambiá estos 4 colores y cambia todo el sitio ====== */
+  --tinta:#0d1b2a;      /* textos y fondos oscuros */
+  --papel:#f5f2eb;      /* fondo general */
+  --acento:#bd9a5f;     /* dorado / detalles */
+  --suave:#e6dfd2;      /* líneas y bloques suaves */
+  /* ====== TIPOGRAFÍAS ====== */
+  --titulo:'Cormorant Garamond',Georgia,serif;
+  --texto:'Jost',Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--papel);color:var(--tinta);font-family:var(--texto);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--acento);text-decoration:none}
+a:hover{color:var(--tinta)}
+input,button,textarea,select{font-family:inherit}
+@keyframes cruzar{0%{opacity:0}8%{opacity:1}33%{opacity:1}41%{opacity:0}100%{opacity:0}}
+@keyframes girarlento{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes flotar{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes latir{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes bajar{0%{opacity:0;transform:translateY(-6px)}50%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
+@keyframes caer{0%{transform:translateY(-12vh) rotate(0deg);opacity:1}100%{transform:translateY(105vh) rotate(720deg);opacity:0}}
+</style>
+</helmet>
+
+<div style="position:relative">
+
+<!-- ══════════ SOBRE / INTRO ══════════ -->
+<div style="{{ estiloSobre }}">
+  <div style="{{ estiloMitadArriba }}"></div>
+  <div style="{{ estiloMitadAbajo }}"></div>
+  <div onClick="{{ abrirSobre }}" style="{{ estiloSobreContenido }}">
+    <div style="{{ estiloTarjeta }}">
+      <div style="position:absolute;inset:0;background:linear-gradient(155deg,transparent 49.6%,rgba(0,0,0,.06) 50%,transparent 50.4%)"></div>
+      <div style="{{ estiloSolapa }}"></div>
+      <div style="{{ estiloSello }}">UK</div>
+    </div>
+    <div style="{{ estiloHint }}">Toca para abrir</div>
+    <div style="width:1px;height:34px;background:linear-gradient(var(--acento),transparent)"></div>
+  </div>
+</div>
+
+<!-- ══════════ MÚSICA ══════════ -->
+<audio ref="{{ audioRef }}" loop="{{ true }}"></audio>
+<button onClick="{{ toggleMusica }}" aria-label="Música" style="position:fixed;bottom:20px;right:20px;z-index:60;width:46px;height:46px;border-radius:50%;border:1px solid var(--suave);background:var(--papel);color:var(--tinta);box-shadow:0 8px 24px rgba(0,0,0,.16);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px">{{ iconoMusica }}</button>
+
+<!-- ══════════ PORTADA ══════════ -->
+<section style="position:relative;height:100svh;min-height:560px;overflow:hidden;background:var(--tinta)">
+  <div data-par="0.32" style="position:absolute;inset:0;will-change:transform">
+    <div style="position:absolute;inset:0;background:radial-gradient(110% 80% at 50% 50%,#1c3049 0%,#0d1b2a 55%,#070f19 100%)"></div>
+    <div style="position:absolute;left:50%;top:50%;width:min(52vw,380px);height:min(52vw,380px);transform:translate(-50%,-50%);opacity:.17;animation:girarlento 120s linear infinite">
+      <svg viewBox="0 0 100 100" width="100%" height="100%" fill="none" stroke="var(--acento)" stroke-width="0.7"><path d="M50 6 92 78H8z"></path><path d="M50 94 8 22h84z"></path></svg>
+    </div>
+    <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.03) 0 1px,transparent 1px 9px)"></div>
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,12,20,.55),rgba(6,12,20,.28) 45%,rgba(6,12,20,.82))"></div>
+  <div data-par="0.14" data-par-fade="1" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#f7f4ee;padding:24px;gap:18px;will-change:transform,opacity">
+    <div style="font-size:11px;letter-spacing:.5em;text-transform:uppercase;opacity:.8">Bar Mitzvá</div>
+    <h1 style="margin:0;font-family:var(--titulo);font-weight:400;font-size:clamp(52px,13vw,140px);line-height:.92;letter-spacing:-.01em">Uriel</h1>
+    <div style="display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.34em;text-transform:uppercase;opacity:.92">
+      <span style="width:34px;height:1px;background:var(--acento)"></span>26 al 29 de noviembre<span style="width:34px;height:1px;background:var(--acento)"></span>
+    </div>
+    <div style="position:absolute;bottom:26px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;opacity:.7">Deslizá<div style="width:1px;height:40px;background:#f7f4ee;animation:bajar 2.2s ease-in-out infinite"></div></div>
+  </div>
+</section>
+
+<!-- ══════════ INVITACIÓN PERSONALIZADA ══════════ -->
+<section style="padding:clamp(70px,10vw,130px) 24px;text-align:center">
+  <svg width="19" height="21" viewBox="0 0 20 22" fill="none" stroke="var(--acento)" stroke-width="1"><path d="M10 1.6 18.7 16.6H1.3z"></path><path d="M10 20.4 1.3 5.4h17.4z"></path></svg><div data-reveal="1" style="max-width:640px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:22px">
+    <div style="font-size:10px;letter-spacing:.46em;text-transform:uppercase;color:var(--acento)">Invitación</div>
+    <h2 style="margin:0;font-family:var(--titulo);font-weight:400;font-size:clamp(34px,6vw,58px);line-height:1.05">{{ invitado }}</h2>
+    <p style="margin:0;font-size:clamp(15px,1.6vw,18px);line-height:1.85;font-weight:300;opacity:.85;text-wrap:pretty">Con enorme alegría queremos compartir con vos un día muy especial: Uriel sube por primera vez a leer la Torá y celebramos juntos su Bar Mitzvá.</p>
+    <div style="width:8px;height:8px;background:var(--acento);transform:rotate(45deg);margin-top:6px"></div>
+  </div>
+</section>
+
+
+<div aria-hidden="true" style="display:flex;align-items:center;justify-content:center;gap:16px;padding:0 24px">
+  
+  
+  
+</div>
+
+<!-- ══════════ COUNTDOWN ══════════ -->
+<section style="padding:clamp(60px,8vw,100px) 24px;background:var(--tinta);color:#f7f4ee;text-align:center">
+  <svg width="19" height="21" viewBox="0 0 20 22" fill="none" stroke="var(--acento)" stroke-width="1"><path d="M10 1.6 18.7 16.6H1.3z"></path><path d="M10 20.4 1.3 5.4h17.4z"></path></svg><div data-reveal="1" style="display:flex;flex-direction:column;align-items:center;gap:30px">
+    <div style="font-size:10px;letter-spacing:.46em;text-transform:uppercase;color:var(--acento)">Agendá la fecha</div>
+    <h2 style="margin:0;font-family:var(--titulo);font-weight:400;font-size:clamp(32px,5.5vw,52px)">Del 26 al 29 de noviembre</h2>
+    <div style="display:flex;gap:clamp(14px,4vw,44px);align-items:flex-start">
+      <div style="display:flex;flex-direction:column;gap:8px;min-width:62px"><span style="font-family:var(--titulo);font-size:clamp(34px,7vw,58px);line-height:1">{{ dias }}</span><span style="font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;opacity:.6">Días</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;min-width:62px"><span style="font-family:var(--titulo);font-size:clamp(34px,7vw,58px);line-height:1">{{ horas }}</span><span style="font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;opacity:.6">Hs</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;min-width:62px"><span style="font-family:var(--titulo);font-size:clamp(34px,7vw,58px);line-height:1">{{ minutos }}</span><span style="font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;opacity:.6">Min</span></div>
+      <div style="display:flex;flex-direction:column;gap:8px;min-width:62px"><span style="font-family:var(--titulo);font-size:clamp(34px,7vw,58px);line-height:1">{{ segundos }}</span><span style="font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;opacity:.6">Seg</span></div>
+    </div>
+    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;dates=20261123T000000Z%2F20261123T050000Z&amp;text=Bar%20Mitzv%C3%A1%20de%20Uriel%20Kahan" target="_blank" style="border:1px solid var(--acento);color:var(--acento);padding:14px 30px;font-size:10px;letter-spacing:.3em;text-transform:uppercase" style-hover="background:var(--acento);color:var(--tinta)">Agendar fecha</a>
+  </div>
+</section>
+
+<!-- ══════════ LOS 4 DÍAS ══════════ -->
+<section style="padding:clamp(70px,10vw,120px) 24px">
+  <div data-reveal="1" style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;padding-bottom:clamp(34px,4vw,50px)">
+    <svg width="19" height="21" viewBox="0 0 20 22" fill="none" stroke="var(--acento)" stroke-width="1"><path d="M10 1.6 18.7 16.6H1.3z"></path><path d="M10 20.4 1.3 5.4h17.4z"></path></svg><div style="font-size:10px;letter-spacing:.46em;text-transform:uppercase;color:var(--acento)">{{ rotuloDias }}</div>
+    <h2 style="margin:0;font-family:var(--titulo);font-weight:400;font-size:clamp(30px,5vw,48px)">La celebración</h2>
+  </div>
+  <div style="max-width:1120px;margin:0 auto;display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(225px,1fr))">
+    <div data-reveal="1" style="border:1px solid var(--suave);padding:clamp(26px,3vw,38px) clamp(20px,2.4vw,28px);text-align:center;display:flex;flex-direction:column;align-items:center;gap:13px;background:#fff">
+      <div style="font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--acento)">Ceremonia · Jueves</div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:2px;font-family:var(--titulo)"><span style="font-size:50px;line-height:1">26</span><span style="font-size:13px;letter-spacing:.2em;text-transform:uppercase">Noviembre</span></div>
+      <div style="font-size:14.5px;letter-spacing:.1em">08:00 hs</div>
+      <div style="width:24px;height:1px;background:var(--suave)"></div>
+      <div style="font-size:14.5px;font-weight:500">Sinagoga Dr. Max Nordau</div>
+      <div style="font-size:12.5px;font-weight:300;opacity:.7;line-height:1.6">Murillo 653, CABA</div>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Murillo+653+CABA" target="_blank" style="margin-top:6px;border:1px solid var(--tinta);color:var(--tinta);padding:11px 22px;font-size:9.5px;letter-spacing:.28em;text-transform:uppercase" style-hover="background:var(--tinta);color:var(--papel)">Cómo llegar</a><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--acento)">TEFILIM</div>
+    </div>
+    <div data-reveal="1" style="border:1px solid var(--suave);padding:clamp(26px,3vw,38px) clamp(20px,2.4vw,28px);text-align:center;display:flex;flex-direction:column;align-items:center;gap:13px;background:#fff">
+      <div style="font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--acento)">Ceremonia · Viernes</div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:2px;font-family:var(--titulo)"><span style="font-size:50px;line-height:1">27</span><span style="font-size:13px;letter-spacing:.2em;text-transform:uppercase">Noviembre</span></div>
+      <div style="font-size:14.5px;letter-spacing:.1em">19:30 hs</div>
+      <div style="width:24px;height:1px;background:var(--suave)"></div>
+      <div style="font-size:14.5px;font-weight:500">Sinagoga Dr. Max Nordau</div>
+      <div style="font-size:12.5px;font-weight:300;opacity:.7;line-height:1.6">Murillo 653, CABA</div>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Murillo+653+CABA" target="_blank" style="margin-top:6px;border:1px solid var(--tinta);color:var(--tinta);padding:11px 22px;font-size:9.5px;letter-spacing:.28em;text-transform:uppercase" style-hover="background:var(--tinta);color:var(--papel)">Cómo llegar</a><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--acento)">KABALAT SHABAT</div>
+    </div>
+    <div data-reveal="1" style="border:1px solid var(--suave);padding:clamp(26px,3vw,38px) clamp(20px,2.4vw,28px);text-align:center;display:flex;flex-direction:column;align-items:center;gap:13px;background:#fff">
+      <div style="font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--acento)">Ceremonia · Sábado</div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:2px;font-family:var(--titulo)"><span style="font-size:50px;line-height:1">28</span><span style="font-size:13px;letter-spacing:.2em;text-transform:uppercase">Noviembre</span></div>
+      <div style="font-size:14.5px;letter-spacing:.1em">09:30 hs</div>
+      
+      <div style="width:24px;height:1px;background:var(--suave)"></div>
+      <div style="font-size:14.5px;font-weight:500">Sinagoga Dr. Max Nordau</div>
+      <div style="font-size:12.5px;font-weight:300;opacity:.7;line-height:1.6">Murillo 653, CABA</div>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Murillo+653+CABA" target="_blank" style="margin-top:6px;border:1px solid var(--tinta);color:var(--tinta);padding:11px 22px;font-size:9.5px;letter-spacing:.28em;text-transform:uppercase" style-hover="background:var(--tinta);color:var(--papel)">Cómo llegar</a><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--acento)">Lectura de la Torá</div>
+    </div>
+    <sc-if value="{{ verFiesta }}" hint-placeholder-val="{{ true }}">
+    <div data-reveal="1" style="border:1px solid var(--suave);padding:clamp(26px,3vw,38px) clamp(20px,2.4vw,28px);text-align:center;display:flex;flex-direction:column;align-items:center;gap:13px;background:#fff">
+      <div style="font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--acento)">Fiesta · Domingo</div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:2px;font-family:var(--titulo)"><span style="font-size:50px;line-height:1">29</span><span style="font-size:13px;letter-spacing:.2em;text-transform:uppercase">Noviembre</span></div>
+      <div style="font-size:14.5px;letter-spacing:.1em">13:00 hs</div>
+      
+      <div style="width:24px;height:1px;background:var(--suave)"></div>
+      <div style="font-size:14.5px;font-weight:500">Salón Javú</div>
+      <div style="font-size:12.5px;font-weight:300;opacity:.7;line-height:1.6">Av. Lope de Vega 964, CABA</div>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Av+Lope+de+Vega+964+CABA" target="_blank" style="margin-top:6px;border:1px solid var(--tinta);color:var(--tinta);padding:11px 22px;font-size:9.5px;letter-spacing:.28em;text-transform:uppercase" style-hover="background:var(--tinta);color:var(--papel)">Cómo llegar</a><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--acento)">FIESTA</div>
+    </div>
+    </sc-if>
+  </div>
+  <sc-if value="{{ verFiesta }}" hint-placeholder-val="{{ true }}">
+    <div data-reveal="1" style="max-width:560px;margin:clamp(32px,4vw,46px) auto 0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px">
+      <span style="width:26px;height:1px;background:var(--acento)"></span>
+      <p style="margin:0;font-size:15px;font-weight:300;line-height:1.8;opacity:.82;text-wrap:pretty">Reservamos <strong style="font-weight:500;color:var(--acento)">{{ pases }} lugares</strong> a tu nombre para la fiesta del domingo.</p>
+    </div>
+  </sc-if>
+</section>
+
+<!-- ══════════ DRESS CODE ══════════ -->
+
+
+<!-- ══════════ PLAYLIST + INSTAGRAM ══════════ -->
+
+
+
+<div aria-hidden="true" style="display:flex;align-items:center;justify-content:center;gap:16px;padding:0 24px">
+  
+  
+  
+</div>
+
+<!-- ══════════ GALERÍA ══════════ -->
+
+
+
+<div aria-hidden="true" style="display:flex;align-items:center;justify-content:center;gap:16px;padding:0 24px">
+  
+  
+  
+</div>
+
+<!-- ══════════ REGALOS ══════════ -->
+<section style="padding:clamp(60px,8vw,100px) 24px;text-align:center;background:var(--suave)">
+  <svg width="19" height="21" viewBox="0 0 20 22" fill="none" stroke="var(--acento)" stroke-width="1"><path d="M10 1.6 18.7 16.6H1.3z"></path><path d="M10 20.4 1.3 5.4h17.4z"></path></svg><div data-reveal="1" style="max-width:560px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:16px">
+    <div style="font-size:10px;letter-spacing:.46em;text-transform:uppercase;color:var(--acento)">Regalos</div>
+    <h2 style="margin:0;font-family:var(--titulo);font-weight:400;font-size:clamp(30px,5vw,46px)">Tu presencia es el regalo</h2>
+    <p style="margin:0;font-size:14px;font-weight:300;line-height:1.8;opacity:.8">Si querés tener un gesto con Uriel, podés acercárselo en la fiesta o hacerlo por transferencia.</p>
+    <button onClick="{{ toggleDatos }}" style="border:1px solid var(--tinta);background:transparent;color:var(--tinta);padding:12px 26px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;cursor:pointer" style-hover="background:var(--tinta);color:var(--papel)">VER DATOS MERCADO PAGO</button>
+    <div style="{{ estiloDatos }}">
+      <div style="background:#fff;border:1px solid rgba(0,0,0,.07);padding:26px;display:flex;flex-direction:column;gap:12px;font-size:13px;text-align:left">
+        <div style="display:flex;justify-content:space-between;gap:16px"><span style="opacity:.6">Alias</span><strong>mariela.caba.mp</strong></div>
+        <div style="display:flex;justify-content:space-between;gap:16px"><span style="opacity:.6">CVU</span><strong id="cbu">0000003100099205691937</strong></div>
+        <div style="display:flex;justify-content:space-between;gap:16px"><span style="opacity:.6">Titular</span><strong>Mariela Paola Fukman</strong></div>
+        <button onClick="{{ copiarCbu }}" style="margin-top:6px;border:1px solid var(--acento);background:transparent;color:var(--acento);padding:11px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;cursor:pointer">{{ textoCopiar }}</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ RSVP ══════════ -->
+<section style="padding:clamp(70px,10vw,120px) 24px;background:var(--tinta);color:#f7f4ee">
+  <div data-reveal="1" style="max-width:480px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px">
+    <div style="font-size:10px;letter-spacing:.46em;text-transform:uppercase;color:var(--acento)">RSVP</div>
+    <h2 style="margin:0;font-family:var(--titulo);font-weight:400;font-size:clamp(30px,5vw,48px)">Confirmá tu asistencia</h2>
+    <sc-if value="{{ noConfirmado }}" hint-placeholder-val="{{ true }}">
+      <form onSubmit="{{ enviarRsvp }}" style="width:100%;display:flex;flex-direction:column;gap:12px;margin-top:8px">
+        <input name="nombre" placeholder="Nombre" required="{{ true }}" style="background:transparent;border:none;border-bottom:1px solid rgba(247,244,238,.28);color:#f7f4ee;padding:13px 2px;font-size:14px;outline:none">
+        <input name="apellido" placeholder="Apellido" required="{{ true }}" style="background:transparent;border:none;border-bottom:1px solid rgba(247,244,238,.28);color:#f7f4ee;padding:13px 2px;font-size:14px;outline:none">
+        <input name="email" type="email" placeholder="Email" required="{{ true }}" style="background:transparent;border:none;border-bottom:1px solid rgba(247,244,238,.28);color:#f7f4ee;padding:13px 2px;font-size:14px;outline:none">
+        <select name="asiste" style="background:transparent;border:none;border-bottom:1px solid rgba(247,244,238,.28);color:#f7f4ee;padding:13px 2px;font-size:14px;outline:none">
+          <option value="Sí" style="color:#111">Sí, voy a estar</option>
+          <option value="No" style="color:#111">No voy a poder ir</option>
+        </select>
+        <input name="cantidad" type="number" min="1" value="{{ pases }}" placeholder="Cuántas personas" style="background:transparent;border:none;border-bottom:1px solid rgba(247,244,238,.28);color:#f7f4ee;padding:13px 2px;font-size:14px;outline:none">
+        <input name="mensaje" placeholder="Mensaje (opcional)" style="background:transparent;border:none;border-bottom:1px solid rgba(247,244,238,.28);color:#f7f4ee;padding:13px 2px;font-size:14px;outline:none">
+        <textarea name="restricciones" rows="2" placeholder="Si alguno tiene restricción alimenticia (vegetariano, celíaco, sin lactosa…), indicá cuántos y cuál" style="background:transparent;border:none;border-bottom:1px solid rgba(247,244,238,.28);color:#f7f4ee;padding:13px 2px;font-size:14px;outline:none;resize:vertical;line-height:1.5"></textarea>
+        <button type="submit" disabled="{{ enviando }}" style="margin-top:14px;border:1px solid var(--acento);background:var(--acento);color:var(--tinta);padding:15px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;cursor:pointer" style-hover="background:transparent;color:var(--acento)">{{ textoBoton }}</button>
+        <div style="font-size:11px;opacity:.5;line-height:1.6">{{ errorRsvp }}</div>
+      </form>
+    </sc-if>
+    <sc-if value="{{ confirmado }}">
+      <div style="margin-top:10px;display:flex;flex-direction:column;align-items:center;gap:12px">
+        <div style="width:54px;height:54px;border:1px solid var(--acento);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--acento);font-size:22px;animation:latir 1.6s ease-in-out infinite">✓</div>
+        <p style="margin:0;font-size:14px;font-weight:300;opacity:.85;line-height:1.7">¡Gracias por confirmar!<br>{{ cierreRsvp }}</p>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<footer style="padding:44px 24px;text-align:center;font-size:10px;letter-spacing:.3em;text-transform:uppercase;opacity:.45">Uriel Kahan · Bar Mitzvá · 26—29.11</footer>
+
+<!-- ══════════ LIGHTBOX ══════════ -->
+<div onClick="{{ cerrarFoto }}" style="{{ estiloLightbox }}">
+  <sc-if value="{{ hayFoto }}"><img ref="{{ fotoRef }}" alt="" style="max-width:92vw;max-height:88vh;object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.6)"></sc-if>
+</div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;paleta&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Azul noche y oro&quot;,&quot;Verde bosque y champagne&quot;,&quot;Negro y plata&quot;,&quot;Vino y arena&quot;],&quot;default&quot;:&quot;Azul noche y oro&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;tipografia&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Clasica (Cormorant + Jost)&quot;,&quot;Romana (Marcellus + DM Sans)&quot;,&quot;Moderna (Bebas + Jost)&quot;],&quot;default&quot;:&quot;Clasica (Cormorant + Jost)&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;acento&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#bd9a5f&quot;,&quot;#a9925f&quot;,&quot;#9a9aa2&quot;,&quot;#a4565c&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  // ══════ CONFIGURACIÓN ══════
+  fecha = new Date(2026, 10, 26, 8, 0, 0);   // año, mes-1, día, hora, minuto
+  // Pegá acá la URL del Web App de Google Apps Script (ver instrucciones):
+  ENDPOINT = 'https://script.google.com/macros/s/AKfycbwuusDjj1kyziDDW2UXi7R7nnrARES_nxdjKj2Vtty_lCbxTRxrhFQUEQfWFwE6Ii1i/exec';
+  WHATSAPP = '';   // fallback: número con código de país, ej '5491122334455'
+
+  state = { sobre: true, fase: 0, t: 0, musica: false, datos: false, copiado: false, foto: null, rsvp: false, enviando: false, error: '' };
+  audio = React.createRef();
+
+  componentDidMount() { this.iniciar(); }
+
+  iniciar() {
+    if (this.iniciado) return;
+    this.iniciado = true;
+    try { this.arrancar(); } catch (e) { console.error('init', e); }
+  }
+
+  arrancar() {
+    this.aplicarTema();
+    this.timer = setInterval(() => this.setState({ t: Date.now() }), 1000);
+    setTimeout(() => {   // rAF no dispara en pestañas en segundo plano
+      this.revelables = [...document.querySelectorAll('[data-reveal]')];
+      this.revelables.forEach(el => {
+        el.style.opacity = 0; el.style.transform = 'translateY(26px)';
+        el.style.transition = 'opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)';
+      });
+      this.revelar = () => {
+        (this.revelables || []).forEach(el => {
+          if (el.dataset.visto) { el.style.opacity = 1; el.style.transform = 'none'; return; }
+          el.style.transition = 'opacity .95s cubic-bezier(.2,.7,.2,1),transform .95s cubic-bezier(.2,.7,.2,1)';
+          const r = el.getBoundingClientRect();
+          if (r.top < (window.innerHeight || 800) * 0.92 && r.bottom > -40) {
+            el.dataset.visto = '1'; el.style.opacity = 1; el.style.transform = 'none';
+          } else { el.style.opacity = 0; el.style.transform = 'translateY(26px)'; }
+        });
+      };
+      // parallax de la portada
+      this.parallax = () => {
+        const y = window.scrollY || 0, h = window.innerHeight || 800;
+        if (y > h * 1.3) return;
+        document.querySelectorAll('[data-par]').forEach(el => {
+          const k = parseFloat(el.dataset.par);
+          el.style.transform = `translate3d(0,${(y * k).toFixed(1)}px,0)` + (k > 0.2 ? ' scale(1.08)' : '');
+          if (el.dataset.parFade) el.style.opacity = Math.max(0, 1 - y / (h * 0.75));
+        });
+      };
+      this.parallax();
+      window.addEventListener('scroll', this.parallax, { passive: true });
+      this.revelar();
+      window.addEventListener('scroll', this.revelar, { passive: true });
+      window.addEventListener('resize', this.revelar);
+      document.addEventListener('scroll', this.revelar, { passive: true, capture: true });
+      // red de seguridad: si algo falla, todo visible
+      setTimeout(() => (this.revelables || []).forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; }), 6000);
+      window.__initOK = true;
+    }, 0);
+    if (this.state.sobre) document.body.style.overflow = 'hidden';
+  }
+  componentDidUpdate(prev) {
+    if (prev.paleta !== this.props.paleta || prev.tipografia !== this.props.tipografia || prev.acento !== this.props.acento) this.aplicarTema();
+    // React reescribe los style desde el template en cada render: re-aplicamos lo imperativo
+    if (this.parallax) this.parallax();
+    if (this.revelar) this.revelar();
+  }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+    if (this.revelar) { window.removeEventListener('scroll', this.revelar); window.removeEventListener('resize', this.revelar); document.removeEventListener('scroll', this.revelar, true); }
+    if (this.parallax) window.removeEventListener('scroll', this.parallax);
+    document.body.style.overflow = '';
+  }
+
+  aplicarTema() {
+    const paletas = {
+      'Azul noche y oro':         ['#0d1b2a', '#f5f2eb', '#bd9a5f', '#e6dfd2'],
+      'Verde bosque y champagne': ['#14261f', '#f3f1e9', '#a9925f', '#e0e2d6'],
+      'Negro y plata':            ['#121214', '#f2f1ef', '#9a9aa2', '#e3e2df'],
+      'Vino y arena':             ['#2b1418', '#f7efe6', '#a4565c', '#ecdccd']
+    };
+    const fuentes = {
+      'Clasica (Cormorant + Jost)':   ["'Cormorant Garamond',Georgia,serif", "'Jost',Helvetica,sans-serif"],
+      'Romana (Marcellus + DM Sans)': ["'Marcellus',Georgia,serif", "'DM Sans',Helvetica,sans-serif"],
+      'Moderna (Bebas + Jost)':       ["'Bebas Neue',Impact,sans-serif", "'Jost',Helvetica,sans-serif"]
+    };
+    const r = document.documentElement.style;
+    const p = paletas[this.props.paleta];
+    if (p) { r.setProperty('--tinta', p[0]); r.setProperty('--papel', p[1]); r.setProperty('--acento', p[2]); r.setProperty('--suave', p[3]); }
+    if (this.props.acento) r.setProperty('--acento', this.props.acento);
+    const f = fuentes[this.props.tipografia];
+    if (f) { r.setProperty('--titulo', f[0]); r.setProperty('--texto', f[1]); }
+  }
+
+  confeti() {
+    const cols = [getComputedStyle(document.documentElement).getPropertyValue('--acento') || '#bd9a5f', '#f7f4ee', '#c9a86a'];
+    for (let i = 0; i < 70; i++) {
+      const d = document.createElement('div');
+      const s = 5 + Math.random() * 7;
+      d.style.cssText = `position:fixed;top:0;left:${Math.random() * 100}vw;width:${s}px;height:${s * 0.5}px;background:${cols[i % 3]};z-index:200;pointer-events:none;animation:caer ${2.4 + Math.random() * 2}s linear ${Math.random() * 0.7}s forwards`;
+      document.body.appendChild(d);
+      setTimeout(() => d.remove(), 6000);
+    }
+  }
+
+  renderVals() {
+    this.iniciar();
+    const f = this.state.fase;
+    const q = new URLSearchParams(location.search);
+    const dif = Math.max(0, this.fecha - Date.now());
+    const dd = n => String(n).padStart(2, '0');
+    return {
+      invitado: q.get('n') || 'Te esperamos',
+      pases: q.get('c') || '2',
+      verFiesta: q.get('f') !== '0',
+      rotuloDias: q.get('f') === '0' ? 'Tres días' : 'Cuatro días',
+      cierreRsvp: q.get('f') === '0' ? 'Nos vemos en el templo.' : 'Nos vemos a partir del 26 de noviembre.',
+      dias: Math.floor(dif / 86400000),
+      horas: dd(Math.floor(dif / 3600000) % 24),
+      minutos: dd(Math.floor(dif / 60000) % 60),
+      segundos: dd(Math.floor(dif / 1000) % 60),
+      audioRef: this.audio,
+      iconoMusica: this.state.musica ? '❙❙' : '♪',
+      noConfirmado: !this.state.rsvp,
+      confirmado: this.state.rsvp,
+      enviando: this.state.enviando,
+      textoBoton: this.state.enviando ? 'Enviando…' : 'Confirmar asistencia',
+      errorRsvp: this.state.error,
+      textoCopiar: this.state.copiado ? 'Copiado ✓' : 'Copiar CVU',
+      hayFoto: !!this.state.foto,
+      fotoRef: el => { this.fotoEl = el; if (el && this.state.foto) el.src = this.state.foto; },
+      estiloSobre: `position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;overflow:hidden;perspective:1200px;${f === 3 ? 'pointer-events:none;visibility:hidden' : ''}`,
+      estiloMitadArriba: `position:absolute;top:0;left:0;right:0;height:50.2%;background:radial-gradient(120% 200% at 50% 100%,#22303f,#080d14);transition:transform 1.25s cubic-bezier(.78,0,.18,1);transform:translate3d(0,${f >= 2 ? '-101%' : '0'},0)`,
+      estiloMitadAbajo: `position:absolute;bottom:0;left:0;right:0;height:50.2%;background:radial-gradient(120% 200% at 50% 0%,#1d2a3a,#080d14);transition:transform 1.25s cubic-bezier(.78,0,.18,1);transform:translate3d(0,${f >= 2 ? '101%' : '0'},0)`,
+      estiloSobreContenido: `position:relative;z-index:3;cursor:pointer;text-align:center;padding:32px;display:flex;flex-direction:column;align-items:center;gap:26px;transition:transform 1s cubic-bezier(.7,0,.2,1),opacity .7s ease;transform:translate3d(0,${f >= 2 ? '-42px' : '0'},0) scale(${f >= 2 ? 1.14 : 1});opacity:${f >= 2 ? 0 : 1}`,
+      estiloTarjeta: `width:min(78vw,420px);aspect-ratio:1.5/1;background:var(--papel);border:1px solid rgba(255,255,255,.18);box-shadow:0 40px 90px rgba(0,0,0,.5);position:relative;display:flex;align-items:center;justify-content:center;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.6,0,.25,1);transform:rotateX(${f >= 1 ? '9deg' : '0deg'}) scale(${f >= 1 ? 1.04 : 1});${f === 0 ? 'animation:flotar 5s ease-in-out infinite' : ''}`,
+      estiloSolapa: `position:absolute;top:0;left:0;right:0;height:52%;background:linear-gradient(180deg,rgba(0,0,0,.07),rgba(0,0,0,.02));clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top center;transition:transform .85s cubic-bezier(.55,0,.25,1);transform:rotateX(${f >= 1 ? '-172deg' : '0deg'})`,
+      estiloSello: `width:76px;height:76px;border-radius:50%;background:var(--acento);color:var(--papel);display:flex;align-items:center;justify-content:center;font-family:var(--titulo);font-size:32px;letter-spacing:.02em;box-shadow:0 6px 18px rgba(0,0,0,.28);position:relative;z-index:2;transition:transform .7s cubic-bezier(.6,0,.2,1),opacity .5s ease;transform:translate3d(0,${f >= 1 ? '-16px' : '0'},0) scale(${f >= 1 ? 0.4 : 1});opacity:${f >= 1 ? 0 : 1}`,
+      estiloHint: `color:#f7f4ee;font-size:11px;letter-spacing:.42em;text-transform:uppercase;transition:opacity .4s ease;opacity:${f >= 1 ? 0 : 0.85}`,
+      estiloDatos: `overflow:hidden;width:100%;transition:max-height .6s ease,opacity .5s ease;max-height:${this.state.datos ? '340px' : '0'};opacity:${this.state.datos ? 1 : 0}`,
+      estiloLightbox: `position:fixed;inset:0;z-index:150;background:rgba(8,10,14,.94);display:${this.state.foto ? 'flex' : 'none'};align-items:center;justify-content:center;cursor:zoom-out;padding:20px`,
+      abrirSobre: () => {
+        if (this.state.fase !== 0) return;
+        const a = this.audio.current;
+        if (a) { if (!a.src) a.src = 'musica/cancion.mp3'; a.play().then(() => this.setState({ musica: true })).catch(() => {}); }
+        this.setState({ fase: 1 });                                  // se abre la solapa
+        setTimeout(() => this.setState({ fase: 2 }), 620);            // se separan las mitades
+        setTimeout(() => { document.body.style.overflow = ''; if (this.revelar) this.revelar(); }, 900);
+        setTimeout(() => this.setState({ fase: 3, sobre: false }), 1900);
+      },
+      toggleMusica: () => {
+        const a = this.audio.current; if (!a) return;
+        if (!a.src) a.src = 'musica/cancion.mp3';
+        if (a.paused) { a.play().then(() => this.setState({ musica: true })).catch(() => {}); }
+        else { a.pause(); this.setState({ musica: false }); }
+      },
+      toggleDatos: () => this.setState(s => ({ datos: !s.datos })),
+      copiarCbu: () => {
+        const el = document.getElementById('cbu');
+        navigator.clipboard.writeText(el ? el.textContent.trim() : '');
+        this.setState({ copiado: true });
+        setTimeout(() => this.setState({ copiado: false }), 2200);
+      },
+      fallaFoto: e => { e.target.style.display = 'none'; },
+      abrirFoto: e => {
+        if (e.target.tagName !== 'IMG') return;
+        const src = e.target.src;
+        this.setState({ foto: src }, () => { if (this.fotoEl) this.fotoEl.src = src; });
+      },
+      cerrarFoto: () => { if (this.fotoEl) this.fotoEl.removeAttribute('src'); this.setState({ foto: null }); },
+      enviarRsvp: e => {
+        e.preventDefault();
+        const f = new FormData(e.target);
+        const datos = {
+          nombre: f.get('nombre'), apellido: f.get('apellido'), email: f.get('email'),
+          asiste: f.get('asiste'), cantidad: f.get('cantidad'), mensaje: f.get('mensaje') || '', restricciones: f.get('restricciones') || '',
+          invitacion: new URLSearchParams(location.search).get('n') || '',
+          fecha_envio: new Date().toLocaleString('es-AR')
+        };
+        const ok = () => { this.setState({ rsvp: true, enviando: false }); this.confeti(); };
+        if (this.ENDPOINT) {
+          this.setState({ enviando: true, error: '' });
+          fetch(this.ENDPOINT, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(datos) })
+            .then(ok).catch(() => this.setState({ enviando: false, error: 'No pudimos enviar. Probá de nuevo o escribinos por WhatsApp.' }));
+        } else if (this.WHATSAPP) {
+          const txt = `Confirmo asistencia al Bar Mitzvá de Uriel:%0A${datos.nombre} ${datos.apellido}%0A${datos.email}%0AAsiste: ${datos.asiste} (${datos.cantidad})%0A${datos.mensaje}`;
+          window.open(`https://wa.me/${this.WHATSAPP}?text=${txt}`, '_blank');
+          ok();
+        } else { ok(); }
+      }
+    };
+  }
+}
+
+</script>
+</body>
+</html>
