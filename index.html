@@ -8,7 +8,7 @@
 <meta property="og:title" content="Bar Mitzvá de Uriel Kahan">
 <meta property="og:description" content="Queremos compartir este día con vos">
 <meta property="og:type" content="website">
-<link rel="icon" href="fotos/favicon.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='32' height='32' fill='%230d1b2a'/%3E%3Cg fill='none' stroke='%23bd9a5f' stroke-width='1.6'%3E%3Cpath d='M16 5l9.5 16.5h-19z'/%3E%3Cpath d='M16 27L6.5 10.5h19z'/%3E%3C/g%3E%3C/svg%3E">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -77,7 +77,7 @@ input,button,textarea,select{font-family:inherit}
     <div style="font-size:11px;letter-spacing:.5em;text-transform:uppercase;opacity:.8">Bar Mitzvá</div>
     <h1 style="margin:0;font-family:var(--titulo);font-weight:400;font-size:clamp(52px,13vw,140px);line-height:.92;letter-spacing:-.01em">Uriel</h1>
     <div style="display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.34em;text-transform:uppercase;opacity:.92">
-      <span style="width:34px;height:1px;background:var(--acento)"></span>26 al 29 de noviembre<span style="width:34px;height:1px;background:var(--acento)"></span>
+      <span style="width:34px;height:1px;background:var(--acento)"></span>{{ rangoCorto }}<span style="width:34px;height:1px;background:var(--acento)"></span>
     </div>
     <div style="position:absolute;bottom:26px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;opacity:.7">Deslizá<div style="width:1px;height:40px;background:#f7f4ee;animation:bajar 2.2s ease-in-out infinite"></div></div>
   </div>
@@ -104,7 +104,7 @@ input,button,textarea,select{font-family:inherit}
 <section style="padding:clamp(60px,8vw,100px) 24px;background:var(--tinta);color:#f7f4ee;text-align:center">
   <svg width="19" height="21" viewBox="0 0 20 22" fill="none" stroke="var(--acento)" stroke-width="1"><path d="M10 1.6 18.7 16.6H1.3z"></path><path d="M10 20.4 1.3 5.4h17.4z"></path></svg><div data-reveal="1" style="display:flex;flex-direction:column;align-items:center;gap:30px">
     <div style="font-size:10px;letter-spacing:.46em;text-transform:uppercase;color:var(--acento)">Agendá la fecha</div>
-    <h2 style="margin:0;font-family:var(--titulo);font-weight:400;font-size:clamp(32px,5.5vw,52px)">Del 26 al 29 de noviembre</h2>
+    <h2 style="margin:0;font-family:var(--titulo);font-weight:400;font-size:clamp(32px,5.5vw,52px)">{{ rangoFechas }}</h2>
     <div style="display:flex;gap:clamp(14px,4vw,44px);align-items:flex-start">
       <div style="display:flex;flex-direction:column;gap:8px;min-width:62px"><span style="font-family:var(--titulo);font-size:clamp(34px,7vw,58px);line-height:1">{{ dias }}</span><span style="font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;opacity:.6">Días</span></div>
       <div style="display:flex;flex-direction:column;gap:8px;min-width:62px"><span style="font-family:var(--titulo);font-size:clamp(34px,7vw,58px);line-height:1">{{ horas }}</span><span style="font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;opacity:.6">Hs</span></div>
@@ -242,7 +242,7 @@ input,button,textarea,select{font-family:inherit}
   </div>
 </section>
 
-<footer style="padding:44px 24px;text-align:center;font-size:10px;letter-spacing:.3em;text-transform:uppercase;opacity:.45">Uriel Kahan · Bar Mitzvá · 26—29.11</footer>
+<footer style="padding:44px 24px;text-align:center;font-size:10px;letter-spacing:.3em;text-transform:uppercase;opacity:.45">Uriel Kahan · Bar Mitzvá · {{ rangoFooter }}</footer>
 
 <!-- ══════════ LIGHTBOX ══════════ -->
 <div onClick="{{ cerrarFoto }}" style="{{ estiloLightbox }}">
@@ -320,6 +320,7 @@ class Component extends DCLogic {
   }
   componentWillUnmount() {
     clearInterval(this.timer);
+    clearInterval(this.fade);
     if (this.revelar) { window.removeEventListener('scroll', this.revelar); window.removeEventListener('resize', this.revelar); document.removeEventListener('scroll', this.revelar, true); }
     if (this.parallax) window.removeEventListener('scroll', this.parallax);
     document.body.style.overflow = '';
@@ -356,18 +357,37 @@ class Component extends DCLogic {
     }
   }
 
+  // sube el volumen de 0.04 a 0.7 en 3.5s (setInterval: también corre en pestaña oculta)
+  subirVolumen() {
+    clearInterval(this.fade);
+    const a = this.audio.current; if (!a) return;
+    const desde = 0.04, hasta = 0.7, pasos = 70, t0 = Date.now();
+    this.fade = setInterval(() => {
+      const p = Math.min(1, (Date.now() - t0) / 3500);
+      a.volume = desde + (hasta - desde) * (p * p);
+      if (p >= 1) clearInterval(this.fade);
+    }, 3500 / pasos);
+  }
+
   renderVals() {
     this.iniciar();
     const f = this.state.fase;
     const q = new URLSearchParams(location.search);
+    const cf = (q.get('f') || '').toLowerCase().trim();
+    const cc = (q.get('c') || '').toLowerCase().trim();
+    // sin fiesta si f=0/no, o si los lugares son 0 / "templo"
+    const ver = !(cf === '0' || cf === 'no' || cc === '0' || cc === 'templo');
     const dif = Math.max(0, this.fecha - Date.now());
     const dd = n => String(n).padStart(2, '0');
     return {
       invitado: q.get('n') || 'Te esperamos',
       pases: q.get('c') || '2',
-      verFiesta: q.get('f') !== '0',
-      rotuloDias: q.get('f') === '0' ? 'Tres días' : 'Cuatro días',
-      cierreRsvp: q.get('f') === '0' ? 'Nos vemos en el templo.' : 'Nos vemos a partir del 26 de noviembre.',
+      verFiesta: ver,
+      rotuloDias: ver ? 'Cuatro días' : 'Tres días',
+      rangoFechas: ver ? 'Del 26 al 29 de noviembre' : 'Del 26 al 28 de noviembre',
+      rangoCorto: ver ? '26 al 29 de noviembre' : '26 al 28 de noviembre',
+      rangoFooter: ver ? '26—29.11' : '26—28.11',
+      cierreRsvp: ver ? 'Nos vemos a partir del 26 de noviembre.' : 'Nos vemos en el templo.',
       dias: Math.floor(dif / 86400000),
       horas: dd(Math.floor(dif / 3600000) % 24),
       minutos: dd(Math.floor(dif / 60000) % 60),
@@ -395,7 +415,7 @@ class Component extends DCLogic {
       abrirSobre: () => {
         if (this.state.fase !== 0) return;
         const a = this.audio.current;
-        if (a) { if (!a.src) a.src = 'musica/cancion.mp3'; a.play().then(() => this.setState({ musica: true })).catch(() => {}); }
+        if (a) { if (!a.src) a.src = 'musica/cancion.mp3'; a.volume = 0.04; a.play().then(() => { this.setState({ musica: true }); this.subirVolumen(); }).catch(() => {}); }
         this.setState({ fase: 1 });                                  // se abre la solapa
         setTimeout(() => this.setState({ fase: 2 }), 620);            // se separan las mitades
         setTimeout(() => { document.body.style.overflow = ''; if (this.revelar) this.revelar(); }, 900);
@@ -404,7 +424,7 @@ class Component extends DCLogic {
       toggleMusica: () => {
         const a = this.audio.current; if (!a) return;
         if (!a.src) a.src = 'musica/cancion.mp3';
-        if (a.paused) { a.play().then(() => this.setState({ musica: true })).catch(() => {}); }
+        if (a.paused) { a.volume = 0.04; a.play().then(() => { this.setState({ musica: true }); this.subirVolumen(); }).catch(() => {}); }
         else { a.pause(); this.setState({ musica: false }); }
       },
       toggleDatos: () => this.setState(s => ({ datos: !s.datos })),
